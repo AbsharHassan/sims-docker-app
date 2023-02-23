@@ -16,7 +16,8 @@ services:
         restart: always
     app:
         container_name: laravel_app
-        image: absharhassan/sims-app-main-image:latest
+        # image: absharhassan/sims-app-main-image:latest
+        build: .
         volumes:
             - /var/www/html/vendor
             - /var/www/html/node_modules

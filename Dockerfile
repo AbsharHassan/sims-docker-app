@@ -22,34 +22,11 @@ RUN chown -R www-data:www-data /var/www/html
 WORKDIR /var/www/html
 
 # Copy the current directory contents into the container at /var/www/html
-COPY --chown=www-data:www-data ./ ./
+COPY --chown=www-data:www-data . .
 
 RUN chmod -R 755 /var/www/html/storage
 RUN chmod -R 755 /var/www/html/bootstrap
 
 COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 
-# # Install Nodejs
-# RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-#     apk update && apk add nodejs
-
-# Install Composer
-# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# RUN chmod -R 755 /storage
-# RUN chmod -R 755 /bootstrap
-
-# Install npm dependencies
-# RUN npm install
-
-# # Create Vue.js prod build
-# # RUN chown -R 33:33 "/root/.npm"
-# RUN npm run prod
-
-# Install Composer dependencies
-# RUN composer install 
-
-
-# # Start the PHP built-in web server
-# CMD ["tail", "-f", "/dev/null"]
-CMD [ "php-fpm" ]
+ENTRYPOINT ["Docker/entrypoint.sh"]
