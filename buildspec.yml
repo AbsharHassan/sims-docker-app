@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: /myapp/docker/username
+    DOCKER_PASSWORD: /myapp/docker/password
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - echo Successfully logged into Docker
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t absharhassan/sims-app-main-image .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image to dockerhub...
+      - docker push absharhassan/sims-app-main-image
+      - echo Build completed
+
+artifacts:
+  files:
+    - "**/*"
