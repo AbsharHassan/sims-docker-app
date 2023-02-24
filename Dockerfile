@@ -13,10 +13,10 @@ RUN apk update && apk add \
     bcmath \
     pdo_mysql
 
-RUN usermod -u 1000 www-data
 
-# Set permissions for user
-RUN chown -R www-data:www-data /var/www/html
+COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
+
+RUN usermod -u 1000 www-data
 
 # Set the working directory to /var/www/html
 WORKDIR /var/www/html
@@ -24,9 +24,13 @@ WORKDIR /var/www/html
 # Copy the current directory contents into the container at /var/www/html
 COPY --chown=www-data:www-data . .
 
+# Set permissions for user
+RUN chown -R www-data:www-data /var/www/html
+
 RUN chmod -R 755 /var/www/html/storage
 RUN chmod -R 755 /var/www/html/bootstrap
 
-COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
+# CMD [ "composer", "install", "&&", "npm", "install", "&&", "npm", "run", "prod", "&&", "php-fpm" ]
 
+RUN chmod +x Docker/entrypoint.sh
 ENTRYPOINT ["Docker/entrypoint.sh"]
