@@ -33,4 +33,4 @@ RUN chmod -R 755 /var/www/html/bootstrap
 # CMD [ "composer", "install", "&&", "npm", "install", "&&", "npm", "run", "prod", "&&", "php-fpm" ]
 
 RUN chmod +x Docker/entrypoint.sh
-ENTRYPOINT ["Docker/entrypoint.sh"]
+ENTRYPOINT ["sh", "Docker/entrypoint.sh"]
