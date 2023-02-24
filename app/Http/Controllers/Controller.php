@@ -13,6 +13,6 @@ class Controller extends BaseController
 
     public function healthCheck()
     {
-        return response()->json(['status' => 'ok']);
+        return response('')->status(200);
     }
 }
