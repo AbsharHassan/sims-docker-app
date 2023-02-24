@@ -3,6 +3,7 @@
 use App\Models\Academics;
 use App\Models\studentData;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CgpaController;
 use App\Http\Controllers\UserController;
@@ -21,6 +22,9 @@ use App\Http\Controllers\studentDataController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// ELB Health Check Route
+Route::get('/ELB-healthCheck', [Controller::class, 'healthCheck']);
 
 
 //********************* PUBLIC ROUTES *********************//
