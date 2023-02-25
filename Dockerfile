@@ -28,7 +28,7 @@ COPY --chown=www-data:www-data . .
 RUN chown -R www-data:www-data /var/www/html
 
 RUN chmod -R 755 /var/www/html/storage/
-RUN chmod -R 644 /var/www/html/storage/clockwork/*
+# RUN chmod -R 644 /var/www/html/storage/clockwork/*
 # RUN find /var/www/html/storage -type f -exec chmod 644 {} \;
 RUN chmod -R 755 /var/www/html/bootstrap/
 
@@ -36,8 +36,8 @@ RUN composer install
 RUN npm install
 RUN npm run prod
 
-CMD [ "php-fpm" ]
+# CMD [ "php-fpm" ]
 # CMD [ "composer", "install", "&&", "npm", "install", "&&", "npm", "run", "prod", "&&", "php-fpm" ]
 
 # RUN chmod +x Docker/entrypoint.sh
-# ENTRYPOINT ["sh", "Docker/entrypoint.sh"]
+ENTRYPOINT ["sh", "Docker/entrypoint.sh"]

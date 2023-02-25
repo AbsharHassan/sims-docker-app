@@ -18,11 +18,14 @@ echo "entered entrypoint file"
 #     npm update --no-progress --no-interaction
 # fi
 
-composer install
+# composer install
 
-npm install
+# npm install
 
-npm run prod
+# npm run prod
+
+chmod -R 755 /var/www/html/storage/
+chmod -R 755 /var/www/html/bootstrap/
 
 echo "all dependencies installed"
 
