@@ -24,8 +24,11 @@ echo "entered entrypoint file"
 
 # npm run prod
 
-chmod -R 755 /storage/
-chmod -R 755 /bootstrap/
+chown -R www-data:www-data storage/
+su -s /bin/sh www-data
+
+chmod -R 755 storage/
+chmod -R 755 bootstrap/
 
 echo "all dependencies installed"
 
