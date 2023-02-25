@@ -27,8 +27,9 @@ COPY --chown=www-data:www-data . .
 # Set permissions for user
 RUN chown -R www-data:www-data /var/www/html
 
-RUN chmod -R 755 /var/www/html/storage
-RUN chmod -R 755 /var/www/html/bootstrap
+RUN chmod -R 755 /var/www/html/storage/
+# RUN find /var/www/html/storage -type f -exec chmod 644 {} \;
+RUN chmod -R 755 /var/www/html/bootstrap/
 
 RUN composer install
 RUN npm install
