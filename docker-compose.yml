@@ -22,6 +22,7 @@ services:
             - /var/www/html/vendor
             - /var/www/html/node_modules
             - .:/var/www/html
+        restart: always
         # depends_on:
         #     - db
 #     db:
