@@ -9,8 +9,8 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"/> --}}
     <link rel="stylesheet" href="/css/style.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Student Management App</title>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <title>Student Managment App</title>
 </head>
 <body>
     <div id="app">

@@ -6,6 +6,7 @@ services:
         image: nginx:alpine
         ports:
             - "80:80"
+
         volumes:
             - .:/var/www/html
             - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
@@ -14,15 +15,21 @@ services:
         links:
             - app
         restart: always
+        networks:
+            - app-network
     app:
         container_name: laravel_app
-        image: absharhassan/sims-app-main-image:latest
-        # build: .
-        # volumes:
-        #     - /var/www/html/vendor
-        #     - /var/www/html/node_modules
-        #     - .:/var/www/html
+        # image: absharhassan/sims-app-main-image:latest
+        build: .
+        # ports:
+        #     - 8000:8000
+        volumes:
+            - /var/www/html/vendor
+            - /var/www/html/node_modules
+            - .:/var/www/html
         restart: always
+        networks:
+            - app-network
         # depends_on:
         #     - db
 #     db:
@@ -38,5 +45,9 @@ services:
 #         volumes:
 #             - db-data:/var/lib/mysql
 
+#Docker Networks
+networks:
+    app-network:
+        driver: bridge
 # volumes:
 #     db-data: ~
