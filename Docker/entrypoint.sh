@@ -3,6 +3,7 @@
 echo "entered entrypoint file"
 
 chown -R www-data:www-data storage/
+chown -R www-data:www-data bootstrap/
 su -s /bin/sh www-data
 
 chmod -R 755 storage/
