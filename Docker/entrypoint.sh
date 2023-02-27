@@ -13,4 +13,6 @@ npm run prod
 
 echo "all processes done. Running PHP-FPM"
 
+php artisan migrate
+
 php-fpm
