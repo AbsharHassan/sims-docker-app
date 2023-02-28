@@ -19,8 +19,8 @@ services:
         #     - app-network
     app:
         container_name: laravel_app
-        image: absharhassan/sims-app-main-image:latest
-        # build: .
+        # image: absharhassan/sims-app-main-image:latest
+        build: .
         # ports:
         #     - 8000:8000
         volumes:
@@ -43,7 +43,10 @@ services:
             - MYSQL_PASSWORD=${DB_PASSWORD}
             - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
         volumes:
+            # - ./Docker/db/test.sh:/docker-entrypoint-initdb.d/entrypoint.sh
+            # - ./Docker/db/mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
             - db-data:/var/lib/mysql
+        # entrypoint: /docker-entrypoint-initdb.d/entrypoint.sh
 
 #Docker Networks
 # networks:
