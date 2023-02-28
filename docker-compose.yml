@@ -19,8 +19,8 @@ services:
         #     - app-network
     app:
         container_name: laravel_app
-        # image: absharhassan/sims-app-main-image:latest
-        build: .
+        image: absharhassan/sims-app-main-image:latest
+        # build: .
         # ports:
         #     - 8000:8000
         volumes:
