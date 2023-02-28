@@ -2,7 +2,7 @@
 
 echo "entered entrypoint file"
 
-npm run prod
+# npm run prod
 
 # php artisan migrate
 
