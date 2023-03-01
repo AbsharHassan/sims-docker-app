@@ -12,8 +12,8 @@ su -s /bin/sh www-data
 chmod -R 755 storage/
 chmod -R 755 bootstrap/
 
+php artisan migrate
+
 echo "all processes done. Running PHP-FPM"
 
 php-fpm
-
-php artisan migrate

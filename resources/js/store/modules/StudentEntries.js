@@ -219,6 +219,7 @@ const actions = {
             .catch((error) => {
                 console.log(error);
             });
+        commit("setRefreshCounter");
     },
     async editCurrentUser({ commit }, formFields) {
         commit("newLoadingStatus", true);

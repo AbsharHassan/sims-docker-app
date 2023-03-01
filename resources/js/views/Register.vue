@@ -1,6 +1,6 @@
 <template>
     <div
-        class="sm:overflow-hidden overflow-y-clip h-full flex items-center justify-center"
+        class="pb-14 sm:pb-0 sm:overflow-hidden overflow-y-clip h-full flex items-center justify-center"
     >
         <div>
             <header class="max-w-lg mx-auto px-2 md:px-0">

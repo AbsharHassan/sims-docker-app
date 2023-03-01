@@ -1,11 +1,13 @@
 <template>
-    <div class="sm:overflow-hidden h-full flex items-center justify-center">
+    <div
+        class="pb-20 sm:pb-0 sm:overflow-hidden h-full flex items-center justify-center"
+    >
         <div>
             <header class="max-w-lg mx-auto px-2 md:px-0">
                 <h1
                     class="text-xl sm:text-3xl text-center mx-auto mt-16 sm:mt-10 pb-1 md:text-3xl font-bold"
                 >
-                    this time in production?
+                    Student Information Management System
                 </h1>
             </header>
             <main

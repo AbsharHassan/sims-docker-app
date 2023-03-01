@@ -102,6 +102,7 @@
                                             title="Name"
                                             :value="currentUser.name"
                                             class="w-full"
+                                            :key="getRefresh"
                                         />
                                     </div>
                                     <div class="flex my-1 px-2 mt-2 w-full">
@@ -109,6 +110,7 @@
                                             title="Email"
                                             :value="currentUser.email"
                                             class="w-full"
+                                            :key="getRefresh"
                                         />
                                     </div>
                                     <div class="flex my-1 px-2 mt-2 w-full">
@@ -116,6 +118,7 @@
                                             title="Role"
                                             :value="currentUser.role"
                                             class="w-full"
+                                            :key="getRefresh"
                                         />
                                     </div>
                                 </div>
@@ -287,7 +290,11 @@
                     <div
                         class="basis-[70%] mt-5 bg-slate-100/60 rounded-md shadow-md border-2 border-transparent hover:shadow-2xl hover:border-cyan-600 hover:bg-white/60 transition duration-500 mx-auto xl:h-[90%] overflow-y-scroll"
                     >
-                        <div v-for="user in this.allUsers[0]" :key="user.id">
+                        <div
+                            v-for="user in this.allUsers[0]"
+                            :key="user.id"
+                            class="p-4"
+                        >
                             <EntriesUser :user="user" />
                         </div>
                     </div>
@@ -349,6 +356,7 @@ export default {
             "allErrors",
             "currentUser",
             "allUsers",
+            "getRefresh",
         ]),
     },
     data() {
