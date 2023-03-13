@@ -4,7 +4,7 @@ echo "entered entrypoint file"
 
 npm run prod
 
-# php artisan migrate
+php artisan migrate
 
 chown -R www-data:www-data storage/
 chown -R www-data:www-data bootstrap/
